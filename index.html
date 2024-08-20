@@ -11,7 +11,9 @@
 <div id="optionsContainer">
 <button type="button" id="gsBtn">Geometric Shapes</button>
 <button type="button" id="tempBtn">Temperature Converter</button>
-
+<button type="button" id="messageSpawnBtn">Welcome Message</button>
+<button type="button" id="avgCalculatorBtn">Average Calculator</button>
+<button type="button" id="currencyCalculatorBtn">Currency Calculator</button>
 </div>
 <div id="formsContainer">
     <div id="geometricShapesContainer">
@@ -42,9 +44,9 @@
     </div>
 </form>
 </div>
-<div id="tempConverter">
+<div id="tempConverterContainer">
     <form>
-        <h1>Temperature Conversion:</h1>
+        <h2>Temperature Conversion:</h2>
         <input type="number" id="textBox" value="0"><br>
         <input type="radio" id="toF" name="unit">
         <label for="toF">Celsius ➡️ Fahrenheit</label><br>
@@ -54,9 +56,48 @@
         <button type="button" onclick="convert()">Submit</button>
         <p id="result"></p>
     </form>
-
 </div>
+<div id="messageContainer">
+    <h2>Welcome Message</h2>
+    <label for="name">Nombre:
+        <input type="text" required id="name" name="name">
+    </label><br>
+    <label for="lastname">Apellido:
+        <input type="text" required id="lastname" name="lastname">
+    </label><br>
+    <button type="button" id="messageBtn">Ingresar</button><br>
+    <p id="message"></p>
+</div>
+<div id="averageContainer">
+    <h2>Average Calculator</h2>
+    <label for="n1">Number 1:
+        <input type="number" required name="n1" id="n1">
+    </label><br>
+    <label for="n2">Number 2:
+        <input type="number" required name="n2" id="n2">
+    </label><br>
+    <label for="n3">Number 3:
+        <input type="number" required name="n3" id="n3">
+    </label><br>
+    <button type="button" id="avgBtn" name="avgBtn">Enter</button><br>
+    <p id="avgResult"></p>
+</div>
+<div id="moneyConverterContainer">
+    <h2>Money Converter</h2>
 
+    <label for="pesos">Pesos:
+        <input type="number" id="pesos" name="pesos" required>
+    </label><br>
+    <label for="selectConverter">Choose a Currency</label>
+    <select name="selectConverter" id="selectConverter">
+        <option value="0">Dolar</option>
+        <option value="1">Euro</option>
+        <option value="2">Pound</option>
+    </select>
+</label><br>
+<button type="button" id="calcBtn">Enter</button>
+<p id="moneyResult"></p>
+</div>
 </div>
     <script src="main.js"></script>
 

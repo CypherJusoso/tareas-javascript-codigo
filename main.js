@@ -24,11 +24,7 @@ selectElement.addEventListener("change", handleSelectChange);
 handleSelectChange();
 gsBtn.addEventListener("click", ()=>{
     state = !state;
-    if(state){
-geometricShapesContainer.style.display= "block";
-}else{
-    geometricShapesContainer.style.display = "none";
-}
+    state ? geometricShapesContainer.style.display = "block" : geometricShapesContainer.style.display = "none";
 });
 
 
@@ -74,6 +70,8 @@ const textBox = document.getElementById("textBox");
 const toFahrenheit = document.getElementById("toF")
 const toCelsius = document.getElementById("toC")
 const result = document.getElementById("result")
+const tempBtn = document.getElementById("tempBtn");
+const tempConverterContainer = document.getElementById("tempConverterContainer");
 let temp;
 
 function convert(){
@@ -92,3 +90,102 @@ function convert(){
         result.textContent = "Select a unit";
     }
 }
+tempConverterContainer.style.display = "none";
+let tempState = false;
+tempBtn.addEventListener("click", ()=>{
+    
+    tempState = !tempState;
+    tempState ? tempConverterContainer.style.display = "block" : tempConverterContainer.style.display = "none";
+});
+
+//Mensaje de bienvenida
+
+
+const message = document.getElementById("message");
+const messageBtn = document.getElementById("messageBtn");
+const messageSpawnBtn = document.getElementById("messageSpawnBtn");
+const messageContainer = document.getElementById("messageContainer");
+messageContainer.style.display = "none";
+
+let messageState = false;
+messageSpawnBtn.addEventListener("click", () => {
+    messageState = !messageState;
+    messageState ? messageContainer.style.display = "block" : messageContainer.style.display = "none";
+});
+
+messageBtn.addEventListener("click", ()=>{
+const username = document.getElementById("name").value;
+const lastname = document.getElementById("lastname").value;
+message.textContent = "Bienvenido " + username + " " + lastname;
+});
+
+//Calculo de promedio
+
+const avgContainer = document.getElementById("averageContainer");
+const avgBtn = document.getElementById("avgBtn");
+const avgResult = document.getElementById("avgResult");
+
+const calculateAvg = () =>{
+    const n1 = document.getElementById("n1").value;
+    const n2 = document.getElementById("n2").value;
+    const n3 = document.getElementById("n3").value;
+
+    n1Double = parseFloat(n1);
+    n2Double = parseFloat(n2);
+    n3Double = parseFloat(n3);
+    if(isNaN(n1Double) || isNaN(n2Double) || isNaN(n3Double)){
+        avgResult.textContent = "Ingrese un numero valido";
+    }else{
+        const sum = n1Double + n2Double + n3Double;
+        const avg = sum / 3;
+        avgResult.textContent = avg;
+    }
+
+};
+avgBtn.addEventListener("click", calculateAvg);
+
+const avgCalculatorBtn = document.getElementById("avgCalculatorBtn");
+let avgState = false;
+avgContainer.style.display = "none";
+avgCalculatorBtn.addEventListener("click", ()=>{
+    avgState = !avgState;
+    avgState ? avgContainer.style.display = "block" : avgContainer.style.display = "none";
+});
+
+//Calculador de Moneda
+const calcBtn = document.getElementById("calcBtn");
+const selectCurrency = document.getElementById("selectConverter");
+const moneyConverterContainer = document.getElementById("moneyConverterContainer");
+const moneyResult = document.getElementById("moneyResult");
+const currencyCalculatorBtn = document.getElementById("currencyCalculatorBtn");
+let currencyState = false;
+const handleCurrencyCalculator = () =>{
+    const selectC = selectCurrency.value;
+    const pesos = document.getElementById("pesos").value;
+    const pesosDouble = parseFloat(pesos);
+    if(isNaN(pesosDouble)){
+        moneyResult.textContent = "Ingrese un numero valido";
+    }
+    if(selectC == "0"){
+        moneyResult.textContent = pesosDouble * 40,18;
+        moneyResult.textContent+= "$USD";
+    }else if (selectC == "1"){
+        moneyResult.textContent = pesosDouble * 44,54;
+        moneyResult.textContent+="€";
+    }else{
+        moneyResult.textContent = pesosDouble * 52,17;
+        moneyResult.textContent+="£";
+    }
+};
+
+calcBtn.addEventListener("click", handleCurrencyCalculator);
+
+moneyConverterContainer.style.display = "none";
+
+currencyCalculatorBtn.addEventListener("click", ()=>{
+currencyState = !currencyState;
+
+currencyState ? moneyConverterContainer.style.display = "block" : moneyConverterContainer.style.display = "none";
+});
+
+

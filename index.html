@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Select a form</h1>
+<div id="optionsContainer">
+<button type="button" id="gsBtn">Geometric Shapes</button>
+</div>
+<div id="formsContainer">
+    <div id="geometricShapesContainer">
+<form>
+    <h2>Area calculation</h2>
+    <label for="calcSelect">Select a geometric figure
+        <select id="calcSelect" name="calcSelect">
+            <option>Triangle</option>
+            <option>Square</option>
+        </select>
+    </label><br>
+    <div id="triangleContainer">
+        <label for="base"> Base:
+        <input type="number" required id="base">
+    </label><br>
+        <label for="height">Height:
+        <input type="number" required id="height">
+    </label><br>
+    <button type="button" onclick="calculateTriangleArea()">Calcular</button><br>
+    <p id="resultTriangle"></p>
+    </div>
+    <div id="squareContainer">
+        <label for="side"> Side:
+        <input type="number" required id="side">
+    </label><br>
+    <button type="button" id="squareBtn">Calcular</button><br>
+    <p id="resultSquare"></p>
+    </div>
+</form>
+</div>
+
+
+</div>
+    <script src="main.js"></script>
+
+</body>
+</html>

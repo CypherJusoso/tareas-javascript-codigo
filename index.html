@@ -10,6 +10,8 @@
 <h1>Select a form</h1>
 <div id="optionsContainer">
 <button type="button" id="gsBtn">Geometric Shapes</button>
+<button type="button" id="tempBtn">Temperature Converter</button>
+
 </div>
 <div id="formsContainer">
     <div id="geometricShapesContainer">
@@ -40,7 +42,20 @@
     </div>
 </form>
 </div>
+<div id="tempConverter">
+    <form>
+        <h1>Temperature Conversion:</h1>
+        <input type="number" id="textBox" value="0"><br>
+        <input type="radio" id="toF" name="unit">
+        <label for="toF">Celsius ➡️ Fahrenheit</label><br>
+        <input type="radio" id="toC" name="unit">
+        <label for="toC">Fahrenheit ➡️ Celsius </label><br>
 
+        <button type="button" onclick="convert()">Submit</button>
+        <p id="result"></p>
+    </form>
+
+</div>
 
 </div>
     <script src="main.js"></script>
